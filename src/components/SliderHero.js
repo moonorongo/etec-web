@@ -3,35 +3,33 @@ import React from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import Image from "next/image";
+import "./SliderHero.css";
 
 const SliderHero = () => {
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
-    speed: 500,
+    speed: 800,
+    autoplay: true,
+    autoplaySpeed: 5000,
     slidesToShow: 1,
     slidesToScroll: 1,
+    draggeable: false,
+    adaptiveHeight: true,
   };
   return (
-    <div>
-      <Slider {...settings}>
+    <div className="absolute inset-0 overflow-hidden z-0">
+      <div className="gradient absolute z-10 w-full h-full"></div>
+      <Slider {...settings} className="carousel relative">
         <div>
-          <h3>1</h3>
+          <Image src="/bg-img-01.jpg" alt="" width={1920} height={500} />
         </div>
         <div>
-          <h3>2</h3>
+          <Image src="/bg-img-02.jpg" alt="" width={1920} height={500} />
         </div>
         <div>
-          <h3>3</h3>
-        </div>
-        <div>
-          <h3>4</h3>
-        </div>
-        <div>
-          <h3>5</h3>
-        </div>
-        <div>
-          <h3>6</h3>
+          <Image src="/bg-img-03.jpg" alt="" width={1920} height={1080} />
         </div>
       </Slider>
     </div>

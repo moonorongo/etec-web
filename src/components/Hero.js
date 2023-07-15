@@ -7,16 +7,13 @@ import { BiLogoWhatsapp } from "react-icons/bi";
 import { MdOutlineMailOutline } from "react-icons/md";
 import classNames from "classnames";
 import { montserrat } from "@/app/layout";
+import SliderHero from "./SliderHero";
 
 const Hero = () => {
   return (
-    <section
-      className="bg-gray-900 min-h-screen text-white relative mb-20 w-full "
-      style={{
-        backgroundImage:
-          "linear-gradient(180deg, rgba(0, 0, 0, 0.50) 0%, rgba(17,24,39,0.90) 94.73%), url(/bg-img-01.jpg)",
-      }}
-    >
+    <section className="bg-gray-900 min-h-screen text-white relative mb-20 w-full">
+      <SliderHero />
+
       <nav className="flex justify-between container mx-auto px-4 items-center pt-12 z-10 relative">
         <Link href="#">
           <div className="w-32 md:w-44">
@@ -31,25 +28,25 @@ const Hero = () => {
         <div className="flex space-x-4">
           <CircleButton
             onClick={() => window.open("https://wa.me/+542915349178")}
-            className="bg-gray-950 p-2"
+            className="bg-gray-900 p-2"
             icon={<BiLogoWhatsapp size={28} color="white" />}
             text="Whatsapp"
             textColor="light"
           />
           <CircleButton
             onClick={() => window.open("mailto:info@espaciotec.com.ar")}
-            className="bg-gray-950 p-2"
+            className="bg-gray-900 p-2"
             icon={<MdOutlineMailOutline size={28} color="white" />}
             text="Email"
             textColor="light"
           />
         </div>
       </nav>
-      <div className="absolute inset-x-0 inset-y-0 container mx-auto px-4 min-h-screen flex flex-col items-center justify-center text-center z-0">
+      <div className="absolute inset-x-0 inset-y-0 container mx-auto px-4 min-h-screen flex flex-col items-center justify-center text-center z-10">
         <div className="space-y-6 max-w-xl">
           <h1
             className={classNames(
-              "text-3xl lg:text-7xl font-bold",
+              "text-4xl lg:text-7xl font-bold drop-shadow-xl",
               montserrat.className
             )}
           >
