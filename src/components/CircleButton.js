@@ -1,10 +1,16 @@
 import { syne } from "@/app/layout";
 import classNames from "classnames";
+import { motion } from "framer-motion";
 import React from "react";
 
 export const CircleButton = ({ icon, text, onClick, className, textColor }) => {
   return (
-    <button onClick={onClick} className="flex flex-col items-center">
+    <motion.button
+      whileHover={{ scale: 1.2 }}
+      transition={{ duration: 0.2 }}
+      onClick={onClick}
+      className="flex flex-col items-center"
+    >
       <div className={classNames("rounded-full p-1 mb-1", className)}>
         <div>{icon}</div>
       </div>
@@ -19,6 +25,6 @@ export const CircleButton = ({ icon, text, onClick, className, textColor }) => {
           {text}
         </p>
       )}
-    </button>
+    </motion.button>
   );
 };

@@ -1,20 +1,37 @@
 "use client";
 import classNames from "classnames";
 import Image from "next/image";
-import React, { useRef } from "react";
-import { motion, useTransform, useScroll } from "framer-motion";
+import React, { useRef, useEffect } from "react";
+import { motion, useInView, useAnimation } from "framer-motion";
 import FadeInAnimation from "./FadeInAnimation";
 
 const ImageItem = ({ className, src, alt }) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
+  const mainControls = useAnimation();
+
+  useEffect(() => {
+    if (isInView) {
+      mainControls.start("visible");
+    }
+  }, [isInView]);
+
   return (
     <motion.div
+      ref={ref}
       className={classNames(
         "overflow-hidden rounded-lg w-full h-full",
         className
       )}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.4 }}
+      variants={{
+        hidden: { opacity: 0 },
+        visible: { opacity: 1 },
+      }}
+      initial="hidden"
+      animate={mainControls}
+      transition={{ duration: 0.5 }}
+      whileHover={{ scale: 1.05 }}
     >
       <Image
         src={src}

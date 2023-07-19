@@ -6,7 +6,7 @@ import ImagesGrid from "./ImagesGrid";
 
 const SectionAbout = () => {
   return (
-    <div className="container mx-auto py-32">
+    <div className="container mx-auto py-20 md:py-32">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center px-4">
         <div className="max-w-md space-y-8 mx-auto ">
           <FadeInAnimation>

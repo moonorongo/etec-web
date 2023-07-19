@@ -11,13 +11,13 @@ const LocationImage = () => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["end end", "end start"],
+    offset: ["start end", "end end"],
   });
 
   const animationImage = useTransform(
     scrollYProgress,
-    [0, 0.1],
-    [0.95, 1],
+    [0, 1],
+    [0.85, 1],
     easeIn
   );
   return (
@@ -31,7 +31,9 @@ const LocationImage = () => {
         alt="Espacio TEC entrada"
         width={1300}
         height={1200}
-        className={"w-full h-full object-cover rounded-t-3xl md:rounded-3xl"}
+        className={
+          "w-full h-full object-cover rounded-t-3xl md:rounded-3xl shadow-xl"
+        }
       />
       <div className="md:absolute md:bottom-0 flex">
         <div
@@ -39,7 +41,7 @@ const LocationImage = () => {
           onClick={() => window.open("https://goo.gl/maps/XPLevjPPJn7GXZGz7")}
         >
           <Image
-            src="/map.jpg"
+            src="/mapa_bahia.jpg"
             alt=""
             width={100}
             height={100}
@@ -51,12 +53,12 @@ const LocationImage = () => {
             className="absolute flex items-center justify-center top-0 w-full h-full"
           >
             <FadeInAnimation>
-              <HiOutlineLocationMarker size={40} />
+              <HiOutlineLocationMarker size={40} color="#111827" />
             </FadeInAnimation>
           </motion.div>
         </div>
 
-        <div className="text-white backdrop-blur-md bg-gray-900 md:bg-white/30 p-6 rounded-br-3xl md:rounded-br-none md:rounded-tr-xl md:max-w-md flex flex-col justify-center">
+        <div className=" backdrop-blur-md bg-gray-100 p-6 rounded-br-3xl md:rounded-br-none md:rounded-tr-xl md:max-w-md flex flex-col justify-center">
           <FadeInAnimation>
             <h4
               className={classNames(

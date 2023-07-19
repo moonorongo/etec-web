@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { CircleButton } from "./CircleButton";
 import { BiLogoWhatsapp } from "react-icons/bi";
 import { MdOutlineMailOutline } from "react-icons/md";
@@ -21,6 +21,11 @@ const Hero = () => {
 
   const scale = useTransform(scrollYProgress, [0, 0.8], [1, 0.95], easeOut);
   const translateY = useTransform(scrollYProgress, [0, 0.5], [0, 10]);
+
+  const handleScrollToSection = () => {
+    const section = document.getElementById("content");
+    section.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
     <section className="bg-gray-900 min-h-screen text-white mb-20 w-full fixed">
@@ -84,12 +89,39 @@ const Hero = () => {
           </FadeInAnimation>
           <FadeInAnimation>
             <button
-              className={classNames(
-                syne.className,
-                "font-semibold bg-gray-500 px-12 text-xl py-3 rounded-xl"
-              )}
+              onClick={handleScrollToSection}
+              className="relative inline-flex items-center justify-center px-16 py-4 overflow-hidden font-medium transition duration-300 ease-out border-2 border-gray-100 hover:border-pink-600 shadow-md group rounded-lg"
             >
-              DESCUBRE
+              <span
+                className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-y-full 
+                 bg-pink-600 group-hover:translate-y-0 ease"
+              >
+                <span className="rotate-90">
+                  <svg
+                    className="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M14 5l7 7m0 0l-7 7m7-7H3"
+                    ></path>
+                  </svg>
+                </span>
+              </span>
+              <span
+                className={classNames(
+                  "absolute flex items-center justify-center w-full h-full text-white text-xl font-semibold transition-all duration-300 transform group-hover:translate-y-full ease",
+                  syne.className
+                )}
+              >
+                DESCUBRE
+              </span>
+              <span className="relative invisible">DESCUBRE</span>
             </button>
           </FadeInAnimation>
         </div>

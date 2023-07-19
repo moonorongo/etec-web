@@ -3,20 +3,22 @@ import { syne } from "@/app/layout";
 import classNames from "classnames";
 import { useScroll, motion, useTransform } from "framer-motion";
 import Image from "next/image";
-import React, { useRef } from "react";
+import Link from "next/link";
+import React, { useRef, useState } from "react";
 import { BiNews } from "react-icons/bi";
 import { BsArrowRight } from "react-icons/bs";
 import { CircleButton } from "./CircleButton";
 import FadeInAnimation from "./FadeInAnimation";
 
 const SectionCommunity = () => {
+  const [hover, setHover] = useState(false);
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["end end", "end start"],
+    offset: ["start end", "end end"],
   });
 
-  const transform = useTransform(scrollYProgress, [0, 0.1], [100, 0]);
+  const transform = useTransform(scrollYProgress, [0.5, 1], [50, 0]);
 
   return (
     <section className="mb-40 px-4">
@@ -37,7 +39,10 @@ const SectionCommunity = () => {
         className="grid grid-cols-6 max-w-4xl mx-auto text-white gap-4"
         style={{ translateY: transform }}
       >
-        <div className="col-span-6 p-6 bg-gray-900 rounded-2xl text-center">
+        <motion.div
+          whileHover={{ scale: 1.05 }}
+          className="col-span-6 p-6 bg-gray-900 rounded-2xl text-center"
+        >
           <h5
             className={classNames(
               "text-lg lg:text-xl font-semibold mb-1",
@@ -47,11 +52,29 @@ const SectionCommunity = () => {
             Visitas o Voluntariados:
           </h5>
           <p>
-            Consultas por visitas o voluntariado: 291 5349178,
-            info@espaciotec.com.ar
+            Consultas por visitas o voluntariado:{" "}
+            <span
+              className="cursor-pointer hover:text-yellow-300"
+              onClick={() => window.open("https://wa.me/+542915349178")}
+            >
+              {" "}
+              291 5349178
+            </span>
+            ,{" "}
+            <Link
+              passHref
+              href="mailto:info@espaciotec.com.ar"
+              className="hover:text-red-400"
+            >
+              info@espaciotec.com.ar
+            </Link>
           </p>
-        </div>
-        <div className="col-span-6 md:col-span-2 bg-purple-800 rounded-2xl p-6 flex items-center justify-between">
+        </motion.div>
+        <motion.div
+          whileHover={{ scale: 1.05 }}
+          onClick={() => window.open("http://blog.espaciotec.com.ar")}
+          className="col-span-6 md:col-span-2 bg-purple-800 rounded-2xl p-6 flex items-center justify-between cursor-pointer"
+        >
           <h5
             className={classNames(
               "text-lg lg:text-xl font-semibold mb-1",
@@ -64,8 +87,14 @@ const SectionCommunity = () => {
             className={"bg-white/20 p-3"}
             icon={<BiNews size={28} />}
           />
-        </div>
-        <div className="col-span-6 md:col-span-4 bg-pink-600 rounded-2xl  flex flex-col md:flex-row items-center justify-between">
+        </motion.div>
+        <motion.div
+          onClick={() => window.open("http://clubpixel.espaciotec.com.ar")}
+          onMouseEnter={() => setHover(true)}
+          onMouseLeave={() => setHover(false)}
+          whileHover={{ scale: 1.05 }}
+          className="col-span-6 md:col-span-4 bg-pink-600 rounded-2xl  flex flex-col md:flex-row items-center justify-between cursor-pointer"
+        >
           <div className="flex flex-col md:items-end justify-center bg-pink-700 rounded-t-2xl md:rounded-l-2xl p-6 w-full md:w-[65%] h-full pr-12">
             <h5
               className={classNames(
@@ -86,10 +115,13 @@ const SectionCommunity = () => {
               </span>
             </span>
           </div>
-          <div className="p-6 md:mr-4">
+          <motion.div
+            animate={hover ? { scale: 1.1, rotate: -5 } : { scale: 1 }}
+            className="p-6 md:mr-4"
+          >
             <Image src="/club-pixel-logo.png" alt="" width={130} height={58} />
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </motion.div>
     </section>
   );
