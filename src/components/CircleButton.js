@@ -1,4 +1,4 @@
-import { montserrat } from "@/app/layout";
+import { syne } from "@/app/layout";
 import classNames from "classnames";
 import React from "react";
 
@@ -13,7 +13,7 @@ export const CircleButton = ({ icon, text, onClick, className, textColor }) => {
           className={classNames(
             textColor === "light" ? "text-white" : "text-gray-950",
             "text-xs",
-            montserrat.className
+            syne.className
           )}
         >
           {text}

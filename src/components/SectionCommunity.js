@@ -1,31 +1,47 @@
 "use client";
-import { montserrat } from "@/app/layout";
+import { syne } from "@/app/layout";
 import classNames from "classnames";
+import { useScroll, motion, useTransform } from "framer-motion";
 import Image from "next/image";
-import React from "react";
+import React, { useRef } from "react";
 import { BiNews } from "react-icons/bi";
 import { BsArrowRight } from "react-icons/bs";
 import { CircleButton } from "./CircleButton";
+import FadeInAnimation from "./FadeInAnimation";
 
 const SectionCommunity = () => {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["end end", "end start"],
+  });
+
+  const transform = useTransform(scrollYProgress, [0, 0.1], [100, 0]);
+
   return (
     <section className="mb-40 px-4">
-      <div className="container max-w-2xl space-y-8 mx-auto text-center my-12">
-        <h2
-          className={classNames(
-            "text-2xl lg:text-4xl font-semibold",
-            montserrat.className
-          )}
-        >
-          Comunidad Espacio TEC
-        </h2>
+      <div className="container max-w-2xl space-y-8 mx-auto text-center my-12 flex justify-center">
+        <FadeInAnimation>
+          <h2
+            className={classNames(
+              "text-2xl lg:text-4xl font-semibold",
+              syne.className
+            )}
+          >
+            Comunidad Espacio TEC
+          </h2>
+        </FadeInAnimation>
       </div>
-      <div className="grid grid-cols-6 max-w-4xl mx-auto text-white gap-4">
+      <motion.div
+        ref={ref}
+        className="grid grid-cols-6 max-w-4xl mx-auto text-white gap-4"
+        style={{ translateY: transform }}
+      >
         <div className="col-span-6 p-6 bg-gray-900 rounded-2xl text-center">
           <h5
             className={classNames(
               "text-lg lg:text-xl font-semibold mb-1",
-              montserrat.className
+              syne.className
             )}
           >
             Visitas o Voluntariados:
@@ -39,7 +55,7 @@ const SectionCommunity = () => {
           <h5
             className={classNames(
               "text-lg lg:text-xl font-semibold mb-1",
-              montserrat.className
+              syne.className
             )}
           >
             Nuestro Blog
@@ -54,13 +70,13 @@ const SectionCommunity = () => {
             <h5
               className={classNames(
                 "text-lg lg:text-xl font-semibold",
-                montserrat.className
+                syne.className
               )}
             >
               ¿Querés apoyar al museo?
             </h5>
             <span className="flex space-x-2 items-center">
-              <p className={classNames("font-normal", montserrat.className)}>
+              <p className={classNames("font-normal", syne.className)}>
                 Sumate a
               </p>
               <span className="flex space-x-1">
@@ -74,7 +90,7 @@ const SectionCommunity = () => {
             <Image src="/club-pixel-logo.png" alt="" width={130} height={58} />
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

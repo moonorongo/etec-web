@@ -8,10 +8,12 @@ export default function Home() {
   return (
     <main className="text-gray-900">
       <Hero />
-      <SectionAbout />
-      <SectionVisit />
-      <SectionCommunity />
-      <Footer />
+      <section className="bg-white relative top-[100vh]">
+        <SectionAbout />
+        <SectionVisit />
+        <SectionCommunity />
+        <Footer />
+      </section>
     </main>
   );
 }

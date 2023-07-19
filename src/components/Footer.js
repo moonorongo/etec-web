@@ -11,7 +11,7 @@ import {
   FaYoutube,
 } from "react-icons/fa";
 import classNames from "classnames";
-import { montserrat } from "@/app/layout";
+import { syne } from "@/app/layout";
 
 const Footer = () => {
   return (
@@ -28,7 +28,7 @@ const Footer = () => {
         <div>
           <p
             className={classNames(
-              montserrat.className,
+              syne.className,
               "font-semibold text-center md:text-right"
             )}
           >

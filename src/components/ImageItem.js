@@ -1,14 +1,20 @@
+"use client";
 import classNames from "classnames";
 import Image from "next/image";
-import React from "react";
+import React, { useRef } from "react";
+import { motion, useTransform, useScroll } from "framer-motion";
+import FadeInAnimation from "./FadeInAnimation";
 
 const ImageItem = ({ className, src, alt }) => {
   return (
-    <div
+    <motion.div
       className={classNames(
         "overflow-hidden rounded-lg w-full h-full",
         className
       )}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.4 }}
     >
       <Image
         src={src}
@@ -17,7 +23,7 @@ const ImageItem = ({ className, src, alt }) => {
         width={600}
         height={600}
       />
-    </div>
+    </motion.div>
   );
 };
 

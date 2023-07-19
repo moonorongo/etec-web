@@ -1,20 +1,38 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useRef } from "react";
 import { CircleButton } from "./CircleButton";
 import { BiLogoWhatsapp } from "react-icons/bi";
 import { MdOutlineMailOutline } from "react-icons/md";
 import classNames from "classnames";
-import { montserrat } from "@/app/layout";
+import { syne } from "@/app/layout";
 import SliderHero from "./SliderHero";
+import { useScroll, useTransform, motion, easeOut } from "framer-motion";
+import FadeInAnimation from "./FadeInAnimation";
 
 const Hero = () => {
-  return (
-    <section className="bg-gray-900 min-h-screen text-white relative mb-20 w-full">
-      <SliderHero />
+  const heroTarget = useRef();
+  const navTarget = useRef();
+  const { scrollYProgress } = useScroll({
+    target: heroTarget,
+    offset: ["end end", "end start"],
+  });
 
-      <nav className="flex justify-between container mx-auto px-4 items-center pt-12 z-10 relative">
+  const scale = useTransform(scrollYProgress, [0, 0.8], [1, 0.95], easeOut);
+  const translateY = useTransform(scrollYProgress, [0, 0.5], [0, 10]);
+
+  return (
+    <section className="bg-gray-900 min-h-screen text-white mb-20 w-full fixed">
+      <SliderHero />
+      <motion.nav
+        style={{ scale, translateY }}
+        ref={navTarget}
+        animate={{ opacity: 1 }}
+        initial={{ opacity: 0 }}
+        transition={{ ease: "easeIn" }}
+        className="flex justify-between container mx-auto px-4 items-center pt-12 z-20 relative"
+      >
         <Link href="#">
           <div className="w-32 md:w-44">
             <Image
@@ -41,31 +59,41 @@ const Hero = () => {
             textColor="light"
           />
         </div>
-      </nav>
-      <div className="absolute inset-x-0 inset-y-0 container mx-auto px-4 min-h-screen flex flex-col items-center justify-center text-center z-10">
-        <div className="space-y-6 max-w-xl">
-          <h1
-            className={classNames(
-              "text-4xl lg:text-7xl font-bold drop-shadow-xl",
-              montserrat.className
-            )}
-          >
-            Museo de Informática
-          </h1>
-          <p className="text-xl lg:text-2xl">
-            Explora la historia y evolución de la informática en armonía con el
-            medio ambiente.
-          </p>
-          <button
-            className={classNames(
-              montserrat.className,
-              "font-semibold bg-gray-600 px-12 text-xl py-3 rounded-xl"
-            )}
-          >
-            DESCUBRE
-          </button>
+      </motion.nav>
+      <motion.div
+        style={{ translateY, scale }}
+        ref={heroTarget}
+        className="absolute inset-x-0 inset-y-0 container mx-auto px-4 min-h-screen flex flex-col items-center justify-center text-center z-10"
+      >
+        <div className="space-y-6 max-w-xl flex flex-col items-center">
+          <FadeInAnimation>
+            <h1
+              className={classNames(
+                "text-4xl lg:text-7xl font-bold drop-shadow-xl",
+                syne.className
+              )}
+            >
+              Museo de Informática
+            </h1>
+          </FadeInAnimation>
+          <FadeInAnimation>
+            <p className="text-xl lg:text-2xl">
+              Explora la historia y evolución de la informática en armonía con
+              el medio ambiente.
+            </p>
+          </FadeInAnimation>
+          <FadeInAnimation>
+            <button
+              className={classNames(
+                syne.className,
+                "font-semibold bg-gray-500 px-12 text-xl py-3 rounded-xl"
+              )}
+            >
+              DESCUBRE
+            </button>
+          </FadeInAnimation>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };
