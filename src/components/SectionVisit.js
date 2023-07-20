@@ -21,11 +21,11 @@ const SectionVisit = () => {
           </FadeInAnimation>
           <FadeInAnimation>
             <p className="!leading-loose text-sm md:text-base">
-              Cada sábado los visitantes pueden apreciar no solo una gran
-              colección de máquinas y artefactos tecnológicos, sino también ver
-              e interactuar con decenas de computadoras, consolas y otros
-              aparatos funcionando, lo que hace de Espacio TEC un lugar
-              diferente a los esperado en un museo más tradicional.
+              Los visitantes podrán apreciar no solo una gran colección de
+              máquinas y artefactos tecnológicos, sino también tocar e
+              interactuar con decenas de computadoras, consolas y otros equipos
+              funcionando, lo que hace de Espacio TEC un lugar diferente a los
+              esperado en un museo más tradicional.
             </p>
           </FadeInAnimation>
         </div>

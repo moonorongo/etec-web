@@ -38,7 +38,11 @@ const LocationImage = () => {
       <div className="md:absolute md:bottom-0 flex">
         <div
           className="w-48 md:w-32 relative aspect-square text-white cursor-pointer"
-          onClick={() => window.open("https://goo.gl/maps/XPLevjPPJn7GXZGz7")}
+          onClick={() =>
+            window.open(
+              "https://www.google.com/maps/place/Espacio+Tec/@-38.7292242,-62.2681088,17z/data=!3m1!4b1!4m6!3m5!1s0x95edbd253d28a60f:0x7a6aa3392f861397!8m2!3d-38.7292242!4d-62.2655339!16s%2Fg%2F11j10_x9sp?entry=ttu"
+            )
+          }
         >
           <Image
             src="/mapa_bahia.jpg"
