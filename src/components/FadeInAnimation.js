@@ -12,6 +12,7 @@ const FadeInAnimation = ({ children }) => {
     if (isInView) {
       mainControls.start("visible");
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isInView]);
 
   return (
