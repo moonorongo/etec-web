@@ -25,9 +25,8 @@ const SectionAbout = () => {
               <strong>
                 &quot;La Asociación Civil Unión 20 de Agosto&quot;
               </strong>
-              , de la cual forma parte, y tiene su origen en un proyecto de
-              tratamiento de RAAES (residuos de aparatos eléctricos y
-              electrónicos).
+              , y tiene su origen en un proyecto de tratamiento de RAAES
+              (residuos de aparatos eléctricos y electrónicos).
             </p>
           </FadeInAnimation>
           <FadeInAnimation>

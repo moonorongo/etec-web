@@ -61,13 +61,13 @@ const SectionCommunity = () => {
               291 5349178
             </span>
             ,{" "}
-            <Link
-              passHref
+            <a
               href="mailto:info@espaciotec.com.ar"
               className="hover:text-red-400"
+              target={"_blank"}
             >
               info@espaciotec.com.ar
-            </Link>
+            </a>
           </p>
         </motion.div>
         <motion.div
