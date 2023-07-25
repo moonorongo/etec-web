@@ -41,7 +41,7 @@ const Hero = () => {
         <Link href="#">
           <div className="w-32 md:w-44">
             <Image
-              alt="Logo Espacio TEC"
+              alt="Logo Espacio TEC "
               src={"/logo_TEC_white.png"}
               width={191}
               height={81}
