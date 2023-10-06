@@ -55,10 +55,10 @@ const SectionCommunity = () => {
             Consultas por visitas o voluntariado:{" "}
             <span
               className="cursor-pointer hover:text-yellow-300"
-              onClick={() => window.open("https://wa.me/+542915349178")}
+              onClick={() => window.open("https://wa.me/+542914279120")}
             >
               {" "}
-              291 5349178
+              291 427 9120
             </span>
             ,{" "}
             <a

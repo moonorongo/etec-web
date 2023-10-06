@@ -50,7 +50,7 @@ const Hero = () => {
         </Link>
         <div className="flex space-x-4">
           <CircleButton
-            onClick={() => window.open("https://wa.me/+542915349178")}
+            onClick={() => window.open("https://wa.me/+542914279120")}
             className="bg-gray-900 p-2"
             icon={<BiLogoWhatsapp size={28} color="white" />}
             text="Whatsapp"
