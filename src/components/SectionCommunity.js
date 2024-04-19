@@ -3,7 +3,6 @@ import { syne } from "@/app/layout";
 import classNames from "classnames";
 import { useScroll, motion, useTransform } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
 import React, { useRef, useState } from "react";
 import { BiNews } from "react-icons/bi";
 import { BsArrowRight } from "react-icons/bs";

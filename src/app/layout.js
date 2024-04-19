@@ -89,6 +89,31 @@ export default function RootLayout({ children }) {
         <meta name="msapplication-TileColor" content="#ffffff" />
         <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
         <meta name="theme-color" content="#ffffff" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: `{
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "image": "https://espaciotec.com.ar/bg-img-01.jpg",
+              "url": "https://espaciotec.com.ar",
+              "logo": "https://espaciotec.com.ar/logo-tec-color.png",
+              "name": "Espacio Tec",
+              "alternateName": "Museo de Informática",
+              "description": "Museo de Informática. Explora la historia y evolución de la informática en armonía con el medio ambiente.",
+              "email": "info@espaciotec.com.ar",
+              "telephone": "+54 291 427 9120",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Thompson 665",
+                "addressLocality": "Bahía Blanca",
+                "addressCountry": "AR",
+                "addressRegion": "Buenos Aires",
+                "postalCode": "8000"
+              },
+            }`,
+          }}
+        ></script>
       </head>
       <body className={inter.className}>{children}</body>
     </html>

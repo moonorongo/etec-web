@@ -2,6 +2,7 @@ import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import SectionAbout from "@/components/SectionAbout";
 import SectionCommunity from "@/components/SectionCommunity";
+import SectionSponsors from "@/components/SectionSponsors";
 import SectionVisit from "@/components/SectionVisit";
 
 export default function Home() {
@@ -12,6 +13,7 @@ export default function Home() {
         <SectionAbout />
         <SectionVisit />
         <SectionCommunity />
+        <SectionSponsors />
         <Footer />
       </section>
     </main>
