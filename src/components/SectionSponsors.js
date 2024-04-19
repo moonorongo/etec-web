@@ -92,7 +92,7 @@ const SectionSponsors = () => {
             <Image
               src="/sponsors/ploc.png"
               alt=""
-              width={100}
+              width={130}
               height={58}
               className="grayscale-0 hover:grayscale transition"
             />
