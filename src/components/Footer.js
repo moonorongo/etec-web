@@ -32,10 +32,11 @@ const Footer = () => {
       <div className="container mx-auto flex flex-col md:flex-row items-center md:justify-between py-16 px-4 space-y-4">
         <div>
           <Image
-            src="/logo-tec-color.png"
+            src="/logo-et.png"
             alt="logo Espacio TEC"
             width={178}
             height={63}
+            className={"w-[178px] h-[63px] object-cover"}
           />
         </div>
         <div>

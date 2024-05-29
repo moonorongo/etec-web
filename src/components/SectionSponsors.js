@@ -5,14 +5,11 @@ import { useScroll, motion, useTransform } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useRef, useState } from "react";
-import { BiNews } from "react-icons/bi";
-import { BsArrowRight } from "react-icons/bs";
-import { CircleButton } from "./CircleButton";
 import FadeInAnimation from "./FadeInAnimation";
 
 const SectionSponsors = () => {
-  const [hover, setHover] = useState(false);
   const ref = useRef(null);
+
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end end"],
@@ -40,12 +37,13 @@ const SectionSponsors = () => {
         style={{ translateY: transform }}
       >
         <div className="flex justify-center my-4">
-          <Link href="http://nuvelar.com/" target={"_blank"}>
+          <Link href="https://www.lirium.com/" target={"_blank"}>
             <Image
-              src="/sponsors/Logo-Nuvelar.png"
+              src="/sponsors/lirium.png"
               alt=""
               width={332}
               height={58}
+              className="grayscale-0 hover:grayscale transition"
             />
           </Link>
         </div>
@@ -54,35 +52,18 @@ const SectionSponsors = () => {
             <Image
               src="/sponsors/MR_logo.png"
               alt=""
-              width={140}
+              width={190}
               height={58}
-              className="grayscale-0 hover:grayscale transition"
+              className="grayscale-0 hover:grayscale transition w-[120px] md:w-[180px]"
             />
           </Link>
           <Link href="https://linktr.ee/osolabs" target={"_blank"}>
             <Image
               src="/sponsors/oso-labs.jpg"
               alt=""
-              width={140}
+              width={190}
               height={58}
-            />
-          </Link>
-          <Link href="http://hostingbahia.com.ar/" target={"_blank"}>
-            <Image
-              src="/sponsors/hostingbahia.png"
-              alt=""
-              width={210}
-              height={58}
-              className="grayscale-0 hover:grayscale transition"
-            />
-          </Link>
-          <Link href="https://www.mastecnologia.com.ar/" target={"_blank"}>
-            <Image
-              src="/sponsors/mastecnologia.png"
-              alt=""
-              width={130}
-              height={58}
-              className="grayscale-0 hover:grayscale transition"
+              className="w-[120px] md:w-[190px]"
             />
           </Link>
           <Link
@@ -92,13 +73,78 @@ const SectionSponsors = () => {
             <Image
               src="/sponsors/ploc.png"
               alt=""
-              width={130}
+              width={180}
+              height={58}
+              className="grayscale-0 hover:grayscale transition w-[120px] md:w-[180px]"
+            />
+          </Link>
+          <Link href="http://hostingbahia.com.ar/" target={"_blank"}>
+            <Image
+              src="/sponsors/hostingbahia.png"
+              alt=""
+              width={260}
+              height={58}
+              className="grayscale-0 hover:grayscale transition w-[160px] md:w-[260px]"
+            />
+          </Link>
+          <Link href="https://www.mastecnologia.com.ar/" target={"_blank"}>
+            <Image
+              src="/sponsors/mastecnologia.png"
+              alt=""
+              width={160}
+              height={58}
+              className="grayscale-0 hover:grayscale transition w-[120px] md:w-[160px]"
+            />
+          </Link>
+          <Link
+            href="https://www.instagram.com/somosfans.ok/"
+            target={"_blank"}
+          >
+            <Image
+              src="/sponsors/somos-fans.png"
+              alt=""
+              width={160}
+              height={58}
+              className="grayscale-0 hover:grayscale transition"
+            />
+          </Link>
+        </div>
+        <div className="flex justify-center my-4">
+          <Link href="http://nuvelar.com/" target={"_blank"}>
+            <Image
+              priority
+              src="/sponsors/Logo-Nuvelar.png"
+              alt=""
+              width={332}
               height={58}
               className="grayscale-0 hover:grayscale transition"
             />
           </Link>
         </div>
       </motion.div>
+      <div className="container max-w-3xl space-y-8 mx-auto text-center my-12 flex justify-center">
+        <FadeInAnimation>
+          <h2
+            className={classNames(
+              "text-2xl lg:text-4xl font-semibold",
+              syne.className
+            )}
+          >
+            Partners
+          </h2>
+        </FadeInAnimation>
+      </div>
+      <div className="flex justify-center my-4">
+        <Link href="https://www.retrocomputacion.com/" target={"_blank"}>
+          <Image
+            src="/sponsors/retro.jpg"
+            alt=""
+            width={332}
+            height={100}
+            className="grayscale-0 hover:grayscale"
+          />
+        </Link>
+      </div>
     </section>
   );
 };

@@ -97,7 +97,7 @@ export default function RootLayout({ children }) {
               "@type": "Organization",
               "image": "https://espaciotec.com.ar/bg-img-01.jpg",
               "url": "https://espaciotec.com.ar",
-              "logo": "https://espaciotec.com.ar/logo-tec-color.png",
+              "logo": "https://espaciotec.com.ar/logo-et.png",
               "name": "Espacio Tec",
               "alternateName": "Museo de Informática",
               "description": "Museo de Informática. Explora la historia y evolución de la informática en armonía con el medio ambiente.",
@@ -110,7 +110,7 @@ export default function RootLayout({ children }) {
                 "addressCountry": "AR",
                 "addressRegion": "Buenos Aires",
                 "postalCode": "8000"
-              },
+              }
             }`,
           }}
         ></script>
