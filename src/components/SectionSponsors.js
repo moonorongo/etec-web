@@ -134,12 +134,33 @@ const SectionSponsors = () => {
           </h2>
         </FadeInAnimation>
       </div>
-      <div className="flex justify-center my-4">
+      <div className="flex justify-center my-4 items-center flex-wrap gap-8">
         <Link href="https://www.retrocomputacion.com/" target={"_blank"}>
           <Image
             src="/sponsors/retro.jpg"
             alt=""
             width={332}
+            height={100}
+            className="grayscale-0 hover:grayscale"
+          />
+        </Link>
+        <Link
+          href="https://sites.google.com/view/lahermandaddelspectrum"
+          target={"_blank"}
+        >
+          <Image
+            src="/sponsors/la-hermandad.png"
+            alt=""
+            width={372}
+            height={100}
+            className="grayscale-0 hover:grayscale"
+          />
+        </Link>
+        <Link href="https://linktr.ee/modohistoriapod" target={"_blank"}>
+          <Image
+            src="/sponsors/modo-historia.jpg"
+            alt=""
+            width={232}
             height={100}
             className="grayscale-0 hover:grayscale"
           />
