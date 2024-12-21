@@ -78,7 +78,7 @@ const Hero = () => {
                 syne.className
               )}
             >
-              Museo de Informática
+              Museo de Informática.
             </h1>
           </FadeInAnimation>
           <FadeInAnimation>
