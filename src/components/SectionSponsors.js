@@ -109,7 +109,7 @@ const SectionSponsors = () => {
             />
           </Link>
         </div>
-        <div className="flex justify-center my-4">
+        <div className="flex justify-center items-center gap-8 flex-wrap  ">
           <Link href="http://nuvelar.com/" target={"_blank"}>
             <Image
               priority
@@ -117,6 +117,17 @@ const SectionSponsors = () => {
               alt=""
               width={332}
               height={58}
+              className="grayscale-0 hover:grayscale transition"
+            />
+          </Link>
+
+          <Link href="https://dexteel.com/en.html" target={"_blank"}>
+            <Image
+              priority
+              src="/sponsors/dexteel_logo.png"
+              alt=""
+              width={102}
+              height={128}
               className="grayscale-0 hover:grayscale transition"
             />
           </Link>
