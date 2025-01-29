@@ -131,6 +131,18 @@ const SectionSponsors = () => {
               className="grayscale-0 hover:grayscale transition"
             />
           </Link>
+
+
+          <Link href="https://www.neocomplexx.com/" target={"_blank"}>
+            <Image
+              priority
+              src="/sponsors/neo_complexx.png"
+              alt=""
+              width={102}
+              height={128}
+              className="grayscale-0 hover:grayscale transition"
+            />
+          </Link>
         </div>
       </motion.div>
       <div className="container max-w-3xl space-y-8 mx-auto text-center my-12 flex justify-center">
