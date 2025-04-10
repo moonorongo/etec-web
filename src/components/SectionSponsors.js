@@ -40,7 +40,7 @@ const SectionSponsors = () => {
           <Link href="https://www.lirium.com/" target={"_blank"}>
             <Image
               src="/sponsors/lirium.png"
-              alt=""
+              alt="Lirium"
               width={332}
               height={58}
               className="grayscale-0 hover:grayscale transition"
@@ -114,7 +114,7 @@ const SectionSponsors = () => {
             <Image
               priority
               src="/sponsors/Logo-Nuvelar.png"
-              alt=""
+              alt="Nuvelar"
               width={332}
               height={58}
               className="grayscale-0 hover:grayscale transition"
@@ -125,7 +125,7 @@ const SectionSponsors = () => {
             <Image
               priority
               src="/sponsors/dexteel_logo.png"
-              alt=""
+              alt="Dexteel"
               width={102}
               height={128}
               className="grayscale-0 hover:grayscale transition"
@@ -137,7 +137,7 @@ const SectionSponsors = () => {
             <Image
               priority
               src="/sponsors/neo_complexx.png"
-              alt=""
+              alt="Neocomplexx"
               width={102}
               height={128}
               className="grayscale-0 hover:grayscale transition"
@@ -152,7 +152,7 @@ const SectionSponsors = () => {
             <Image
               priority
               src="/sponsors/rook_bird_games_logo.png"
-              alt=""
+              alt="Rookbird"
               width={200}
               height={135}
               className="grayscale-0 hover:grayscale transition"
@@ -178,7 +178,7 @@ const SectionSponsors = () => {
         <Link href="https://www.retrocomputacion.com/" target={"_blank"}>
           <Image
             src="/sponsors/retro.jpg"
-            alt=""
+            alt="Retrocomputacion"
             width={332}
             height={100}
             className="grayscale-0 hover:grayscale"
@@ -190,7 +190,7 @@ const SectionSponsors = () => {
         >
           <Image
             src="/sponsors/la-hermandad.png"
-            alt=""
+            alt="La Hermandad del spectrum"
             width={372}
             height={100}
             className="grayscale-0 hover:grayscale"
@@ -199,7 +199,7 @@ const SectionSponsors = () => {
         <Link href="https://linktr.ee/modohistoriapod" target={"_blank"}>
           <Image
             src="/sponsors/modo-historia.jpg"
-            alt=""
+            alt="Modo historia"
             width={232}
             height={100}
             className="grayscale-0 hover:grayscale"
