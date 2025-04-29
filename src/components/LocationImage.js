@@ -73,7 +73,7 @@ const LocationImage = () => {
               Horarios y ubicación
             </h4>
             <p className="text-sm md:text-base">
-              Sábados y Domingos de 17:00 a 20:30. Thompson 665, Bahía
+              Sábados y Domingos de 17:00 a 20:00. Thompson 665, Bahía
               Blanca.
             </p>
           </FadeInAnimation>
