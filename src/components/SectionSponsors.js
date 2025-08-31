@@ -196,12 +196,25 @@ const SectionSponsors = () => {
             className="grayscale-0 hover:grayscale"
           />
         </Link>
+      </div>
+      
+      <div className="flex justify-center my-4 items-center flex-wrap gap-8">
         <Link href="https://linktr.ee/modohistoriapod" target={"_blank"}>
           <Image
             src="/sponsors/modo-historia.jpg"
             alt="Modo historia"
             width={232}
             height={100}
+            className="grayscale-0 hover:grayscale"
+          />
+        </Link>
+
+        <Link href="https://homecomputer.com.ar/" target={"_blank"}>
+          <Image
+            src="/sponsors/logo-homecomputer.png"
+            alt="Home Computer"
+            width={256}
+            height={256}
             className="grayscale-0 hover:grayscale"
           />
         </Link>

@@ -30,6 +30,7 @@ const Hero = () => {
   return (
     <section className="bg-gray-900 min-h-screen text-white mb-20 w-full fixed">
       <SliderHero />
+
       <motion.nav
         style={{ scale, translateY }}
         ref={navTarget}
@@ -65,13 +66,50 @@ const Hero = () => {
           />
         </div>
       </motion.nav>
+
+
       <motion.div
         style={{ translateY, scale }}
         ref={heroTarget}
-        className="absolute inset-x-0 inset-y-0 container mx-auto px-4 min-h-screen flex flex-col items-center justify-center text-center z-10"
+        className="absolute2 inset-x-0 inset-y-0 container mx-auto px-4 min-h-screen flex flex-col items-center justify-center text-center z-10"
       >
         <div className="space-y-6 max-w-xl flex flex-col items-center">
-          <FadeInAnimation>
+          <div
+            style={{top: '-2rem'}} 
+            className="relative top-0 left-0  w-full md:w-[130%] z-10 flex flex-col md:flex-row items-stretch gap-8 px-4 pt-4 justify-center"
+          >
+            <div style={{aspectRatio : '3/1'}} className="w-full">
+              <FadeInAnimation>
+                <Link href="https://vcf.espaciotec.com.ar" target={"_blank"}>
+                  <Image
+                    src="/banners/banner_vcf.png"
+                    alt="VCF Latam 2026"
+                    width={528}
+                    height={176}
+                    layout='responsive'
+                    objectFit='contain'
+                  />
+                </Link>
+              </FadeInAnimation>
+            </div>
+
+            <div style={{aspectRatio : '3/1'}} className="w-full  bg-gray-300">
+              <FadeInAnimation>
+                <Link href="https://espaciotec.com.ar/rgd2026" target={"_blank"}>
+                  <Image
+                    src="/banners/banner_retro.png"
+                    alt="VCF Latam 2026"
+                    width={528}
+                    height={176}
+                    layout='responsive'
+                    objectFit='contain'
+                  />
+                </Link>
+              </FadeInAnimation>
+            </div>
+          </div>
+          
+          <FadeInAnimation className="mt-0">
             <h1
               className={classNames(
                 "text-4xl lg:text-7xl font-bold drop-shadow-xl",
@@ -87,14 +125,15 @@ const Hero = () => {
               el medio ambiente.
             </p>
           </FadeInAnimation>
+
           <FadeInAnimation>
             <button
               onClick={handleScrollToSection}
-              className="relative inline-flex items-center justify-center px-16 py-4 overflow-hidden font-medium transition duration-300 ease-out border-2 border-gray-100 hover:border-pink-600 shadow-md group rounded-lg"
+              className="opacity-[0] relative inline-flex items-center justify-center px-16 py-4 overflow-hidden font-medium transition duration-300 ease-out border-2 border-gray-100 hover:border-pink-600 shadow-md group rounded-lg"
             >
               <span
                 className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-y-full 
-                 bg-pink-600 group-hover:translate-y-0 ease"
+                bg-pink-600 group-hover:translate-y-0 ease"
               >
                 <span className="rotate-90">
                   <svg
@@ -124,8 +163,10 @@ const Hero = () => {
               <span className="relative invisible">DESCUBRE</span>
             </button>
           </FadeInAnimation>
+        
         </div>
       </motion.div>
+
     </section>
   );
 };
