@@ -76,9 +76,9 @@ const Hero = () => {
         <div className="space-y-6 max-w-xl flex flex-col items-center">
           <div
             style={{top: '-2rem'}} 
-            className="relative top-0 left-0  w-full md:w-[130%] z-10 flex flex-col md:flex-row items-stretch gap-8 px-4 pt-4 justify-center"
+            className="relative top-0 left-0  w-full md:w-[130%] z-10 flex flex-col md:flex-row items-stretch gap-8 px-4 pt-4 justify-center content-center"
           >
-            <div style={{aspectRatio : '3/1'}} className="w-full">
+            <div style={{aspectRatio : '3/1'}} className="rounded-lg overflow-hidden m-auto">
               <FadeInAnimation>
                 <Link href="https://vcf.espaciotec.com.ar" target={"_blank"}>
                   <Image
@@ -93,7 +93,7 @@ const Hero = () => {
               </FadeInAnimation>
             </div>
 
-            <div style={{aspectRatio : '3/1'}} className="w-full  bg-gray-300">
+            <div style={{aspectRatio : '3/1'}} className="rounded-lg overflow-hidden  m-auto">
               <FadeInAnimation>
                 <Link href="https://espaciotec.com.ar/rgd2026" target={"_blank"}>
                   <Image
