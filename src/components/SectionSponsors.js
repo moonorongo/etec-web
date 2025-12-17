@@ -96,7 +96,7 @@ const SectionSponsors = () => {
               className="grayscale-0 hover:grayscale transition w-[120px] md:w-[160px]"
             />
           </Link>
-          <Link
+          {/* <Link
             href="https://www.instagram.com/somosfans.ok/"
             target={"_blank"}
           >
@@ -107,7 +107,7 @@ const SectionSponsors = () => {
               height={58}
               className="grayscale-0 hover:grayscale transition"
             />
-          </Link>
+          </Link> */}
         </div>
         <div className="flex justify-center items-center gap-8 flex-wrap  ">
           <Link href="http://nuvelar.com/" target={"_blank"}>
@@ -133,7 +133,7 @@ const SectionSponsors = () => {
           </Link>
 
 
-          <Link href="https://www.neocomplexx.com/" target={"_blank"}>
+          {/* <Link href="https://www.neocomplexx.com/" target={"_blank"}>
             <Image
               priority
               src="/sponsors/neo_complexx.png"
@@ -142,7 +142,7 @@ const SectionSponsors = () => {
               height={128}
               className="grayscale-0 hover:grayscale transition"
             />
-          </Link>
+          </Link> */}
 
 
         </div>
