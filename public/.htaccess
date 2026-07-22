@@ -4,8 +4,8 @@
 # nombre (que cambian solos cuando cambia su contenido) se cachean fuerte.
 
 <IfModule mod_headers.c>
-  # HTML: nunca cachear -> siempre trae la version nueva al recargar
-  <FilesMatch "\.(html)$">
+  # HTML / JSON de datos / PHP: nunca cachear -> siempre trae lo ultimo
+  <FilesMatch "\.(html|json|php)$">
     Header set Cache-Control "no-cache, no-store, must-revalidate"
     Header set Pragma "no-cache"
     Header set Expires "0"
