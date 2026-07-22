@@ -36,17 +36,6 @@ const SectionSponsors = () => {
         className="grid max-w-4xl mx-auto gap-4"
         style={{ translateY: transform }}
       >
-        <div className="flex justify-center my-4">
-          <Link href="https://www.lirium.com/" target={"_blank"}>
-            <Image
-              src="/sponsors/lirium.png"
-              alt="Lirium"
-              width={332}
-              height={58}
-              className="grayscale-0 hover:grayscale transition"
-            />
-          </Link>
-        </div>
         <div className="flex justify-center items-center gap-8 flex-wrap">
           <Link href="https://misentarho.com.ar" target={"_blank"}>
             <Image
@@ -76,24 +65,6 @@ const SectionSponsors = () => {
               width={180}
               height={58}
               className="grayscale-0 hover:grayscale transition w-[120px] md:w-[180px]"
-            />
-          </Link>
-          <Link href="http://hostingbahia.com.ar/" target={"_blank"}>
-            <Image
-              src="/sponsors/hostingbahia.png"
-              alt=""
-              width={260}
-              height={58}
-              className="grayscale-0 hover:grayscale transition w-[160px] md:w-[260px]"
-            />
-          </Link>
-          <Link href="https://www.mastecnologia.com.ar/" target={"_blank"}>
-            <Image
-              src="/sponsors/mastecnologia.png"
-              alt=""
-              width={160}
-              height={58}
-              className="grayscale-0 hover:grayscale transition w-[120px] md:w-[160px]"
             />
           </Link>
           {/* <Link
@@ -147,20 +118,6 @@ const SectionSponsors = () => {
 
         </div>
 
-        <div className="flex justify-center items-center gap-8 flex-wrap  ">
-          <Link href="https://rookbird.com/" target={"_blank"}>
-            <Image
-              priority
-              src="/sponsors/rook_bird_games_logo.png"
-              alt="Rookbird"
-              width={200}
-              height={135}
-              className="grayscale-0 hover:grayscale transition"
-            />
-          </Link>
-        </div>
-
-        
       </motion.div>
       <div className="container max-w-3xl space-y-8 mx-auto text-center my-12 flex justify-center">
         <FadeInAnimation>
@@ -180,18 +137,6 @@ const SectionSponsors = () => {
             src="/sponsors/retro.jpg"
             alt="Retrocomputacion"
             width={332}
-            height={100}
-            className="grayscale-0 hover:grayscale"
-          />
-        </Link>
-        <Link
-          href="https://sites.google.com/view/lahermandaddelspectrum"
-          target={"_blank"}
-        >
-          <Image
-            src="/sponsors/la-hermandad.png"
-            alt="La Hermandad del spectrum"
-            width={372}
             height={100}
             className="grayscale-0 hover:grayscale"
           />

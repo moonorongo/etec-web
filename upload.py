@@ -1,7 +1,30 @@
 import os
 import zipfile
 import ftplib
-import requests
+import urllib.request
+import urllib.error
+
+
+# === Step 0: Cargar credenciales desde .env ===
+def load_env(path=".env"):
+    """Loader minimo de .env (sin dependencias externas)."""
+    if not os.path.exists(path):
+        return
+    with open(path, "r", encoding="utf-8") as f:
+        for line in f:
+            line = line.strip()
+            if not line or line.startswith("#") or "=" not in line:
+                continue
+            key, _, value = line.partition("=")
+            os.environ.setdefault(key.strip(), value.strip())
+
+
+def require_env(key):
+    value = os.environ.get(key)
+    if not value:
+        raise SystemExit(f"Falta la variable '{key}'. Configurala en .env (ver .env.example).")
+    return value
+
 
 # === Step 1: Compress the "out" folder ===
 def zip_folder(folder_path, zip_name):
@@ -13,6 +36,7 @@ def zip_folder(folder_path, zip_name):
                 zipf.write(full_path, arcname)
     print(f"Folder '{folder_path}' compressed to '{zip_name}'.")
 
+
 # === Step 2: Upload the zip to hosting via FTP ===
 def upload_via_ftp(zip_file_path, ftp_host, ftp_user, ftp_password, remote_path):
     with ftplib.FTP(ftp_host) as ftp:
@@ -20,6 +44,7 @@ def upload_via_ftp(zip_file_path, ftp_host, ftp_user, ftp_password, remote_path)
         with open(zip_file_path, 'rb') as f:
             ftp.storbinary(f"STOR {remote_path}", f)
         print(f"Uploaded '{zip_file_path}' to '{ftp_host}/{remote_path}'.")
+
 
 # === Step 3: Get the contents of a URL ===
 def get_url_contents(url):
@@ -29,30 +54,34 @@ def get_url_contents(url):
                       "Chrome/122.0.0.0 Safari/537.36"
     }
 
-    response = requests.get(url, headers=headers)
-    if response.status_code == 200:
-        print(f"Contents of {url}:\n{response.text[:500]}...")  # Print first 500 chars
-    else:
-        print(f"Failed to fetch URL. Status code: {response.status_code}")
-        print(f"Response content:\n{response.text}")
+    req = urllib.request.Request(url, headers=headers)
+    try:
+        with urllib.request.urlopen(req) as response:
+            body = response.read().decode("utf-8", errors="replace")
+            print(f"Contents of {url}:\n{body[:500]}...")  # Print first 500 chars
+    except urllib.error.HTTPError as e:
+        print(f"Failed to fetch URL. Status code: {e.code}")
+        print(f"Response content:\n{e.read().decode('utf-8', errors='replace')}")
 
 
 # === MAIN EXECUTION ===
 if __name__ == "__main__":
+    load_env()
+
     folder_to_zip = "out"
     zip_file_name = "out.zip"
 
     ftp_details = {
-        "host": "ftp.espaciotec.com.ar",
-        "user": "espaciot",
-        "password": "KojiKabuto1972",
-        "remote_path": "public_html/out.zip"
+        "host": require_env("FTP_HOST"),
+        "user": require_env("FTP_USER"),
+        "password": require_env("FTP_PASSWORD"),
+        "remote_path": require_env("FTP_REMOTE_PATH"),
     }
 
-    target_url = "https://espaciotec.com.ar/unzipper.php?pwd=ni4Diche!"
+    target_url = require_env("UNZIPPER_URL")
 
     zip_folder(folder_to_zip, zip_file_name)
-    
+
     upload_via_ftp(zip_file_name, ftp_details["host"], ftp_details["user"], ftp_details["password"], ftp_details["remote_path"])
-    
+
     get_url_contents(target_url)

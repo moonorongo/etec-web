@@ -6,3 +6,39 @@
 height: 100vh;
 object-fit: cover;
 }
+
+/* Flechas de navegación personalizadas: siempre visibles sobre cualquier imagen */
+.slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 9999px;
+  color: #fff;
+  background: rgba(17, 24, 39, 0.45);
+  backdrop-filter: blur(2px);
+  transition: background 0.2s ease, transform 0.2s ease;
+  cursor: pointer;
+}
+
+.slider-arrow:hover {
+  background: rgba(17, 24, 39, 0.75);
+}
+
+.slider-arrow--left {
+  left: 20px;
+}
+
+.slider-arrow--right {
+  right: 20px;
+}
+
+/* Neutraliza el pseudo-elemento de flecha del tema por defecto de slick */
+.slider-arrow::before {
+  content: none;
+}
