@@ -40,3 +40,6 @@ out.zip
 # python
 __pycache__/
 *.pyc
+
+# datos locales del panel (no deployar)
+public/data/
