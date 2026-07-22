@@ -74,41 +74,6 @@ const Hero = () => {
         className="absolute2 inset-x-0 inset-y-0 container mx-auto px-4 min-h-screen flex flex-col items-center justify-center text-center z-10"
       >
         <div className="space-y-6 max-w-xl flex flex-col items-center">
-          <div
-            style={{top: '-2rem'}} 
-            className="relative top-0 left-0  w-full md:w-[130%] z-10 flex flex-col md:flex-row items-stretch gap-8 px-4 pt-4 justify-center content-center"
-          >
-            <div style={{aspectRatio : '3/1'}} className="rounded-lg overflow-hidden m-auto">
-              <FadeInAnimation>
-                <Link href="https://vcf.espaciotec.com.ar" target={"_blank"}>
-                  <Image
-                    src="/banners/banner_vcf.png"
-                    alt="VCF Latam 2026"
-                    width={528}
-                    height={176}
-                    layout='responsive'
-                    objectFit='contain'
-                  />
-                </Link>
-              </FadeInAnimation>
-            </div>
-
-            <div style={{aspectRatio : '3/1'}} className="rounded-lg overflow-hidden  m-auto">
-              <FadeInAnimation>
-                <Link href="https://espaciotec.com.ar/rgd2026" target={"_blank"}>
-                  <Image
-                    src="/banners/banner_retro.png"
-                    alt="VCF Latam 2026"
-                    width={528}
-                    height={176}
-                    layout='responsive'
-                    objectFit='contain'
-                  />
-                </Link>
-              </FadeInAnimation>
-            </div>
-          </div>
-          
           <FadeInAnimation className="mt-0">
             <h1
               className={classNames(

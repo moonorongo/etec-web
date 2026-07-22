@@ -3,12 +3,27 @@ import { syne } from "@/app/layout";
 import classNames from "classnames";
 import { useScroll, motion, useTransform, easeIn } from "framer-motion";
 import Image from "next/image";
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import FadeInAnimation from "./FadeInAnimation";
 
+// Horario por defecto (se usa si aun no hay data/horario.json en el server)
+const HORARIO_DEFAULT = "Sábados y Domingos de 16:00 a 19:00";
+
 const LocationImage = () => {
   const ref = useRef(null);
+  const [horario, setHorario] = useState(HORARIO_DEFAULT);
+
+  useEffect(() => {
+    fetch(`/data/horario.json?t=${Date.now()}`)
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d) => {
+        if (d && d.dias && d.desde && d.hasta) {
+          setHorario(`${d.dias} de ${d.desde} a ${d.hasta}`);
+        }
+      })
+      .catch(() => {});
+  }, []);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end end"],
@@ -73,8 +88,7 @@ const LocationImage = () => {
               Horarios y ubicación
             </h4>
             <p className="text-sm md:text-base">
-              Sábados y Domingos de 16:00 a 19:00. Thompson 665, Bahía
-              Blanca.
+              {horario}. Thompson 665, Bahía Blanca.
             </p>
           </FadeInAnimation>
         </div>

@@ -1,0 +1,37 @@
+# === Cache control para espaciotec.com.ar (Next.js static export en Apache) ===
+# Objetivo: que el usuario SIEMPRE reciba la ultima version del sitio sin tener
+# que borrar cache. El HTML se revalida siempre; los assets con hash en el
+# nombre (que cambian solos cuando cambia su contenido) se cachean fuerte.
+
+<IfModule mod_headers.c>
+  # HTML / JSON de datos / PHP: nunca cachear -> siempre trae lo ultimo
+  <FilesMatch "\.(html|json|php)$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
+  </FilesMatch>
+
+  # Assets con hash de Next (/_next/static/...): inmutables, cache largo.
+  # El hash del nombre cambia al cambiar el contenido, asi que es seguro.
+  <FilesMatch "\.(js|css|woff2?|ttf|eot)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+
+  # Imagenes / iconos: cache corto + revalidacion.
+  # Asi si se reemplaza un banner o foto, se actualiza en poco tiempo.
+  <FilesMatch "\.(png|jpe?g|gif|svg|webp|ico)$">
+    Header set Cache-Control "public, max-age=3600, must-revalidate"
+  </FilesMatch>
+</IfModule>
+
+# Fallback si no esta mod_headers pero si mod_expires
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType image/png "access plus 1 hour"
+  ExpiresByType image/jpeg "access plus 1 hour"
+  ExpiresByType image/webp "access plus 1 hour"
+  ExpiresByType image/svg+xml "access plus 1 hour"
+</IfModule>
